@@ -41,17 +41,19 @@ node index.js
 
 | Método | Ruta | Descripción |
 | :--- | :--- | :--- |
-| **POST** | `/envios` | Crea un nuevo envío. |
-| **GET** | `/envios/:id` | Obtiene un envío por su ID. |
-| **PUT** | `/envios/:id` | Actualiza el estado de un envío existente. |
-| **GET** | `/envios/activos` | Lista todos los envíos con estado "activo". |
+| **POST** | `/api/envio` | Crea un nuevo envío (requiere ID personalizado). |
+| **GET** | `/api/envio/:id` | Obtiene un envío por su ID. |
+| **PUT** | `/api/envio/:id/estado` | Actualiza el estado de un envío existente. |
+| **GET** | `/api/envios/activos` | Lista todos los envíos con estado "activo". |
 
 ## Estructura de los json
 
-### Creación de envío (POST /envios)
+### Creación de envío (POST /api/envio)
 
 ```json
 {
+  "id": "ENV001",
+  "remitente": "Ana García",
   "destinatario": "Juan Pérez",
   "direccion": "Calle Falsa 123",
   "estado": "activo"
@@ -62,7 +64,7 @@ node index.js
 
 ```json
 {
-  "id":id,
+    "id":"",
   "estado": "entregado"
 }
 ```
